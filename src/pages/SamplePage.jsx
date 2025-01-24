@@ -5,8 +5,8 @@ import Chart from "../components/Chart";
 const SamplePage = () => {
   return (
     <Layout>
-      <div>
-        <Chart />
+      <div >
+        <Chart className="overflow-x-hidden"/>
       </div>
     </Layout>
   );

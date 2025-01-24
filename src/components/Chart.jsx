@@ -18,10 +18,25 @@ const Chart = () => {
     ],
   };
 
+  const options = {
+    responsive: true, // Ensures the chart resizes based on the container
+    maintainAspectRatio: false, // Ensures the aspect ratio is not maintained (if you want to make it responsive)
+    scales: {
+      x: {
+        ticks: {
+          autoSkip: true, // Automatically skip labels if they are too long
+          maxRotation: 0, // Prevent rotation of labels
+        },
+      },
+    },
+  };
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mt-6">
+    <div className="bg-white p-6 overflow-hidden rounded-lg shadow-md mt-6">
       <h3 className="text-lg font-medium text-gray-700 mb-4">Sales Overview</h3>
-      <Line data={data} />
+      <div style={{ position: "relative", height: "300px" }}>
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };
